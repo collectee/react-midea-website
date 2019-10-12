@@ -1,0 +1,1 @@
+import '../static/css/temp1.scss'

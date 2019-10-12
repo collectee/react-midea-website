@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="header-div">
+    <header class="header-expand relative">
+        <div class="left-icon"><a><div class="header-icon"></div><span>React Movie Website</span></a></div>
+        <div class="right-bars"><i class="fa fa-bars"></i></div>
+        <div class="search-bar"><div class="inputDiv"><input/><i class="fa fa-search"></i></div></div>
+        <!--<div class="searchDiv"></div>-->
+    </header>
+    <div class="outside-menu hidding">
+        <ul>
+            <li><a><i class="fa fa-upload"></i><span>上传</span></a></li>
+            <!--<li><a><i class="fa fa-download"></i><span>下载</span></a></li>-->
+            <li><a><i class="fa fa-film"></i><span>转码</span></a></li>
+            <li><a><i class="fa fa-chevron-right"></i><span>登陆</span></a></li>
+            <li><a><i class="fa fa-chevron-right"></i><span>登出</span></a></li>
+        </ul>
+    </div>
+    <div class="taps uploadTap showing">
+        <div class="taps_bg"></div>
+        <form>
+            <div class="title-div"><label for="v_title">视频标题:<input type="text" class="v_title" name="title"/></label></div>
+            <div class="file-div"><label for="v_file">视频文件:<input type="file" class="v_file" name="file"/></label></div>
+            <div class="cover-div"><label for="v_cover">视频文件:<input type="text" class="v_cover" name="cover"/></label></div>
+            <div class="text-div"><label for="v_text">视频描述:</label><textarea class="v_text"></textarea></div>
+            <div class="click-div"><button type="submit">确定上传</button></div>
+        </form>
+    </div>
+    <div class="taps transcodeTap hidding">
+        <div class="taps_bg"></div>
+        <form>
+            <div class="format-div"><label for="v_format">视频格式:<input type="text" class="v_format" name="format"/></label></div>
+            <div class="file-div"><label for="v_file">视频文件:<input type="file" class="v_file" name="file"/></label></div>
+            <div class="cover-div"><label for="v_cover">视频文件:<input type="text" class="v_cover" name="cover"/></label></div>
+            <div class="click-div"><button type="submit">确定转码</button></div>
+        </form>
+    </div>
+    <div class="taps loginTap hidding">
+        <div class="taps_bg"></div>
+        <form>
+            <div class="username-div"><label for="v_username">用户名:<input type="text" class="v_username" name="username"/></label></div>
+            <div class="password-div"><label for="v_password">密码:&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" class="v_password" name="password"/></label></div>
+            <div class="click-div"><button type="submit">登陆</button></div>
+        </form>
+    </div>
+</div>
+<div class="left-menu">
+    <div class="relative">
+        <ul>
+            <li><a href="index.html"><i class="fa fa-chevron-right"></i><span>Media</span></a></li>
+            <li><a><i class="fa fa-chevron-right"></i><span>Music</span></a></li>
+            <li><a><i class="fa fa-chevron-right"></i><span>Articles</span></a></li>
+            <li><a><i class="fa fa-chevron-right"></i><span>UserProfile</span></a></li>
+        </ul>
+    </div>
+    <div class="closeLeft"></div>
+</div>
+<div class="right-menu">
+    <div class="relative scollor">
+        <div class="video-left">
+            <div class="videoWrap">
+                <video id='vd' controls poster=''>
+                    showSomething
+                </video>
+            </div>
+            <div class="videoInfo">
+                <div class="authorImg">
+                    <img src="https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1568522513&di=8064c2b9b2d6a87db8687ddce5fd582f&src=http://i0.hdslb.com/bfs/archive/13a1b16acf340763b5c2521fe4d8995a0490481c.jpg"/>
+                </div>
+                <div class="v_info">
+                    <h2>【ヨルシカ】「所以我放弃了音乐」MV【ナブナ/n-buna × suis】</h2>
+                    <article>sm34914430 https://youtu.be/KTZ-y85Erus
+                        【授权转载】
+                        ヨルシカ - だから僕は音楽を辞めた
+                        Yorushika - Moonlight
+
+                        作詞作曲、編曲(Words and Music,Arranged)：n-buna
+                        Vocal：suis
+
+                        Music Video Created by ぽぷりか,まごつき
+
+                        1st Full Album 「だから僕は音楽を辞めた」
+                        2019年4月10日(水)発売、予約受付中
+                        http://yorushika.com
+                        字幕制作者（日语）：KitanoNani</article>
+                </div>
+            </div>
+            <div class="videoComment">
+                <div class="labelComment">评论区</div>
+                <div class="commentTap">
+                    <div class="u_img"><img src="https://z-video.oss-cn-shenzhen.aliyuncs.com/title1/title1-1.jpeg"/></div>
+                    <div class="u_cm">
+                        <div class="u_time">
+                            <time >2019/7/18 00:34:19</time>
+                        </div>
+                        <article>1st Full Album 「だから僕は音楽を辞めた」
+                            2019年4月10日(水)発売、予約受付中
+                            http://yorushika.com
+                            字幕制作者（日语）：KitanoNani</article>
+                        <div class="control_box">
+                            <button>回复</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="commentTap">
+                    <div class="u_img"><img src="https://z-video.oss-cn-shenzhen.aliyuncs.com/title1/title1-1.jpeg"/></div>
+                    <div class="u_cm">
+                        <div class="u_time">
+                            <time >2019/7/18 00:34:19</time>
+                        </div>
+                        <article>1st Full Album 「だから僕は音楽を辞めた」
+                            2019年4月10日(水)発売、予約受付中
+                            http://yorushika.com
+                            字幕制作者（日语）：KitanoNani</article>
+                        <div class="control_box">
+                            <button>回复</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="commentTap">
+                    <div class="u_img"><img src="https://z-video.oss-cn-shenzhen.aliyuncs.com/title1/title1-1.jpeg"/></div>
+                    <div class="u_cm">
+                        <div class="u_time">
+                            <time >2019/7/18 00:34:19</time>
+                        </div>
+                        <article>1st Full Album 「だから僕は音楽を辞めた」
+                            2019年4月10日(水)発売、予約受付中
+                            http://yorushika.com
+                            字幕制作者（日语）：KitanoNani</article>
+                        <div class="control_box">
+                            <button>回复</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="video-right">
+            <ul>
+                <li>
+                    <div class="flex-item-box">
+                        <a href="playVideo.html">
+                            <div></div>
+                            <img src="https://z-video.oss-cn-shenzhen.aliyuncs.com/apple/apple-1.jpeg"/>
+                            <span>手绘</span>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="flex-item-box">
+                        <a href="playVideo.html">
+                            <div></div>
+                            <img src="https://z-video.oss-cn-shenzhen.aliyuncs.com/title1/title1-1.jpeg"/>
+                            <span>手绘</span>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="flex-item-box">
+                        <a href="playVideo.html">
+                            <div></div>
+                            <img src="http://gss0.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/c75c10385343fbf2b365cf2db67eca8065388f76.jpg"/>
+                            <span>手绘</span>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="flex-item-box">
+                        <a href="playVideo.html">
+                            <div></div>
+                            <img src="http://gss0.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/c75c10385343fbf2b365cf2db67eca8065388f76.jpg"/>
+                            <span>手绘</span>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="flex-item-box">
+                        <a href="playVideo.html">
+                            <div></div>
+                            <img src="http://gss0.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/c75c10385343fbf2b365cf2db67eca8065388f76.jpg"/>
+                            <span>手绘</span>
+                        </a>
+                    </div>
+                </li>
+                <li>
+                    <div class="flex-item-box">
+                        <a href="playVideo.html">
+                            <div></div>
+                            <img src="http://gss0.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/c75c10385343fbf2b365cf2db67eca8065388f76.jpg"/>
+                            <span>手绘</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.bootcss.com/dashjs/3.0.0/dash.all.min.js" defer></script>
+</body>
+</html>

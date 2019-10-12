@@ -19,7 +19,7 @@ class TodoList extends Component {
         this.setState({});
     }
     render() {
-        let list = this.props.children.map((node) => <li key={node.name}><a href={node.href}><i className={"fa "+node.className}></i><span>{node.name}</span></a></li>)
+        let list = this.props.children.map((node) => <a href={node.href} ><li key={node.name} onClick={node.clickType}><i className={"fa "+node.className}></i><span>{node.name}</span></li></a>)
         return <div className={this.props.className}>
             <ul>
                 {list}
