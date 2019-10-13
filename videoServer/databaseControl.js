@@ -1,4 +1,5 @@
 const mysql = require('mysql')
+const pubIp = require('public-ip')
 class Formating {
     formatFields (arr) {
         console.log(arr)
@@ -21,14 +22,20 @@ class Formating {
         return str
     }
 }
-
-var connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'db_1'
+let ipF = async function(){
+    let ip = await pubIp.v4()
+    return ip
+}
+ipF().then(ip => {
+    connection = mysql.createConnection({
+        host: 'localhost',
+        user: 'root',
+        password: ip !=='211.97.3.241'?'bestwishes':'',
+        database: 'db_1'
+    })
+    console.log(ip)
+    connection.connect();
 })
-connection.connect();
 class QueryStr {
     //  构造初始函数
     //  基本请求函数

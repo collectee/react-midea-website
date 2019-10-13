@@ -7,6 +7,8 @@ var fs = require('fs')
 var path = require('path')
 const bodyParser = require('body-parser')
 const moment = require('moment')
+const os = require('os')
+const pubIp = require('public-ip')
 const ossControl = require('./ossControl.js')
 const videoRoute = require('./ossTemplate.js')
 const QueryStr = require('./databaseControl.js')
@@ -50,7 +52,18 @@ app.use(bodyParser.urlencoded({extended: false}))
 //   smartypants: false
 // })
 
-
+function getIPAddress(){
+    var interfaces = os.networkInterfaces();
+    for(var devName in interfaces){
+        var iface = interfaces[devName];
+        for(var i=0;i<iface.length;i++){
+            var alias = iface[i];
+            if(alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal){
+                return alias.address;
+            }
+        }
+    }
+}
 
 class SessionUser extends QueryStr {
   signUp (username, password) {
@@ -474,5 +487,7 @@ app.listen(8081,function (err){
     if(err){
         console.log(err)
     }
+    // console.log(getIPAddress())
+    // console.log(pubIp.v4().then(ip => console.log(ip + '---公网')))
     console.log('8081端口')
 })

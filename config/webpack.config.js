@@ -2,9 +2,9 @@ let webpack = require ('webpack');
 let path = require ('path');
 let HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     entry: {
-        main:path.resolve(__dirname,'../src/index.jsx'),
+        media:path.resolve(__dirname,'../src/index.jsx'),
         // video:path.resolve(__dirname,'../template/video.js')
     }, //入口文件
     output: {
@@ -16,6 +16,21 @@ module.exports = {
         contentBase: path.resolve(__dirname, "../dist"),
         compress: true,
         port: 9000
+    },
+    optimization: {
+        runtimeChunk: true,
+        splitChunks: {
+            cacheGroups: {
+                vendor: {
+                    chunks: 'all',
+                    test: /[\\/]node_modules[\\/]/,
+                    name: 'vendor',
+                    maxAsyncRequests: 5,
+                    priority: 10,
+                    enforce: true
+                }
+            }
+        }
     },
     module: {
         rules: [
@@ -29,17 +44,17 @@ module.exports = {
                 test:/\.(scss|css)/i,
                 use:['style-loader','css-loader','sass-loader']
             },
+            // {
+            //     test:/\.(svg)$/i,
+            //     use:[{
+            //         loader: "file-loader",
+            //         options: {
+            //             outputPath:'dist/image/'
+            //         }
+            //     }]
+            // },
             {
-                test:/\.(svg)$/i,
-                use:[{
-                    loader: "file-loader",
-                    options: {
-                        outputPath:'dist/image/'
-                    }
-                }]
-            },
-            {
-                test:/\.(jpg|png|jpeg)/i,
+                test:/\.(jpg|png|jpeg|svg)$/i,
                 loader: 'url-loader',
                 options: {
                     limit: 10000
@@ -55,7 +70,8 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template:path.resolve(__dirname,'../src/index.html'),
-            chunks:['main']
+            filename:'index.html',
+            chunks:['media']
         }),
         // new HtmlWebpackPlugin({
         //     template:path.resolve(__dirname,'../template/playVideo.html'),
