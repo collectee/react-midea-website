@@ -10,27 +10,13 @@ module.exports = {
     output: {
         // path: './dist',
         path: path.resolve(__dirname,'../dist'), //输出位置
-        filename: '[name]-build.js' //输入文件
+        filename: '[name]-build.js', //输入文件
+        publicPath: '/react/'
     },
     devServer: {
         contentBase: path.resolve(__dirname, "../dist"),
         compress: true,
         port: 9000
-    },
-    optimization: {
-        runtimeChunk: true,
-        splitChunks: {
-            cacheGroups: {
-                vendor: {
-                    chunks: 'all',
-                    test: /[\\/]node_modules[\\/]/,
-                    name: 'vendor',
-                    maxAsyncRequests: 5,
-                    priority: 10,
-                    enforce: true
-                }
-            }
-        }
     },
     module: {
         rules: [
