@@ -64,7 +64,7 @@ class MobxStore {
         if(this.search){
             axios({
                 method:'get',
-                url:'http://localhost:8081/video/search',
+                url:this.$server + '/video/search',
                 params:{
                     title:this.search,
                     currentPage:currentPage
@@ -75,7 +75,7 @@ class MobxStore {
         }else{
             axios({
                 method:'get',
-                url:'http://localhost:8081/video/listVideo',
+                url:this.$server + '/video/listVideo',
                 params:{
                     currentPage:currentPage
                 }
