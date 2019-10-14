@@ -14,7 +14,7 @@ import axios from 'axios';
 // let store = createStore(reduces)
 
 class MobxStore {
-    @observable $server = 'http://localhost:8081'
+    @observable $server = 'http://47.112.6.146:8081'
     @observable search = ''
     @observable videoClip = {
         currentPage:1,
@@ -53,8 +53,12 @@ class MobxStore {
     //     })
     // }
     constructor(){      //It seems like a create hook function in Vue
+        this.setServer()
         this.getList(1)
         this.chooseVideo = this.chooseVideo.bind(this)
+    }
+    @action setServer(){
+        this.$server = window.location.host === '47.112.6.146:80'?'http://47.112.6.146:8081':'http://localhost:8081'
     }
     @action getList(currentPage){
         if(this.search){
