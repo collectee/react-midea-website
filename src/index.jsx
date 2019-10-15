@@ -58,7 +58,7 @@ class MobxStore {
         this.chooseVideo = this.chooseVideo.bind(this)
     }
     @action setServer(){
-        this.$server = window.location.host === '47.112.6.146:80'?'http://47.112.6.146:8081':'http://localhost:8081'
+        this.$server = window.location.host !== '47.112.6.146'?'http://47.112.6.146:8081':'http://localhost:8081'
     }
     @action getList(currentPage){
         if(this.search){
