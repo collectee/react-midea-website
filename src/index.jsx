@@ -98,7 +98,7 @@ class MobxStore {
 let mobxer = new MobxStore();
 ReactDOM.render((
     //{/*<Provider store={store}>*/}
-        <Router>
+        <Router basename={'/react/'}>
             <Route path="/" component={props=> <App store={mobxer}/>}>
             </Route>
         </Router>
