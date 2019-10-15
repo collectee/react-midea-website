@@ -23,14 +23,14 @@ class Formating {
     }
 }
 let ipF = async function(){
-    let ip = await pubIp.v4()
-    return ip
+    return await pubIp.v4()
 }
 ipF().then(ip => {
+    QueryStr.ip = ip
     connection = mysql.createConnection({
         host: 'localhost',
         user: 'root',
-        password: ip !=='211.97.3.241'?'bestwishes':'',
+        password: ip ==='47.112.6.146'?'bestwishes':'',
         database: 'db_1'
     })
     console.log(ip)
@@ -38,6 +38,9 @@ ipF().then(ip => {
 })
 class QueryStr {
     //  构造初始函数
+    constructor(){
+        this.ip = ''
+    }
     //  基本请求函数
     query (str, data) {
         console.log(str,'-',data)

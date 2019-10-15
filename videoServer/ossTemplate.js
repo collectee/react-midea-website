@@ -119,13 +119,14 @@ router.all(/uploadVideo/,function (req,res) {
             ['','','','','','0','','']
         ]
     }
-    form.uploadDir = "dist";
+    form.uploadDir = QueryStr.ip === '47.112.6.146'?'/var/www/server/videoServer/dist':'dist';
     form.keepExtensions = true;
     form.parse(req,function (err,fields,files) {
         if(err){
             console.log(err)
             return false
         }
+        console.log(files.file.path)
         if(!files.file.name.match(/\.mp4$|\.flv$/)){
             res.send({'msg':'请更改为mp4或flv格式上传'})
         }
@@ -142,8 +143,8 @@ router.all(/uploadVideo/,function (req,res) {
             insertObj.data[0][7] = 'https://z-video.oss-cn-shenzhen.aliyuncs.com/'+name+'/'+name+'-1.jpeg';
             ffmpObj.getImage(m4sName,name);
             res.send({'msg':'服务器已接收文件,因服务器转换视频流较久,一般超过三分钟的视频都要等待较长时间'});
-            ffmpObj.reduce(m4sName,name,function (result) {
-                query.insert(insertObj,() => {res.send({'msg':'上传成功'})})
+            ffmpObj.reduce(m4sName,name,(result) => {
+                query.insert(insertObj,() => {console.log('上传成功')})
             })
         })
     })
