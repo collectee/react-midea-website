@@ -59,6 +59,7 @@ class MobxStore {
     }
     @action setServer(){
         this.$server = window.location.host === '47.112.6.146'?'http://47.112.6.146:8081':'http://localhost:8081'
+        console.log(window.location.host,'_',this.$server)
     }
     @action getList(currentPage){
         if(this.search){
