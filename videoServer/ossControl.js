@@ -1,11 +1,16 @@
 const oss = require('ali-oss');
 const fs = require('fs')
+const pubIp = require('public-ip')
 
-const client = new oss({
-    region: 'oss-cn-shenzhen',
-    accessKeyId: 'LTAIWZ4nQSVCvior',
-    accessKeySecret: 'lJvtPRVUXONalIEtOO5F7o7jXzaEUX',
-    bucket: 'z-video'
+let client = null
+
+pubIp.v4().then(ip => {
+    client = new oss({
+        region: ip === '47.112.6.146'?'oss-cn-shenzhen-internal':'oss-cn-shenzhen',
+        accessKeyId: 'LTAIWZ4nQSVCvior',
+        accessKeySecret: 'lJvtPRVUXONalIEtOO5F7o7jXzaEUX',
+        bucket: 'z-video'
+    })
 })
 
 class Cl {
