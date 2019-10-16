@@ -17,14 +17,14 @@ class MobxStore {
     @observable $server = 'http://47.112.6.146:8081'
     @observable search = ''
     @observable videoClip = {
-        currentPage:1,
+        currentPage:0,
         data:[
-            {id:1,title:'手绘',abstract:'',poster:'https://z-video.oss-cn-shenzhen.aliyuncs.com/pv1/pv1-1.jpeg',href:'playVideo'},
-            {id:2,title:'动漫',abstract:'',poster:'https://z-video.oss-cn-shenzhen.aliyuncs.com/apple/apple-1.jpeg',href:''},
-            {id:3,title:'青空呐喊',abstract:'',poster:'https://z-video.oss-cn-shenzhen.aliyuncs.com/title1/title1-1.jpeg',href:''},
-            {id:4,title:'动漫播放————30年京阿尼的进化之路 feat.Kyoto Animation',abstract:'',poster:'https://z-video.oss-cn-shenzhen.aliyuncs.com/pv1/pv1-1.jpeg',href:''},
-            {id:5,title:'Trump:America First!!!!!!!!!!',abstract:'',poster:'https://z-video.oss-cn-shenzhen.aliyuncs.com/title1/title1-1.jpeg',href:''},
-            {id:6,title:'手绘',abstract:'',poster:'https://z-video.oss-cn-shenzhen.aliyuncs.com/pv1/pv1-1.jpeg',href:''}
+            // {id:1,title:'手绘',abstract:'',poster:'https://z-video.oss-cn-shenzhen.aliyuncs.com/pv1/pv1-1.jpeg',href:'playVideo'},
+            // {id:2,title:'动漫',abstract:'',poster:'https://z-video.oss-cn-shenzhen.aliyuncs.com/apple/apple-1.jpeg',href:''},
+            // {id:3,title:'青空呐喊',abstract:'',poster:'https://z-video.oss-cn-shenzhen.aliyuncs.com/title1/title1-1.jpeg',href:''},
+            // {id:4,title:'动漫播放————30年京阿尼的进化之路 feat.Kyoto Animation',abstract:'',poster:'https://z-video.oss-cn-shenzhen.aliyuncs.com/pv1/pv1-1.jpeg',href:''},
+            // {id:5,title:'Trump:America First!!!!!!!!!!',abstract:'',poster:'https://z-video.oss-cn-shenzhen.aliyuncs.com/title1/title1-1.jpeg',href:''},
+            // {id:6,title:'手绘',abstract:'',poster:'https://z-video.oss-cn-shenzhen.aliyuncs.com/pv1/pv1-1.jpeg',href:''}
         ]
     };
     @observable showVideo = {};
@@ -98,7 +98,7 @@ class MobxStore {
 let mobxer = new MobxStore();
 ReactDOM.render((
     //{/*<Provider store={store}>*/}
-        <Router basename={'/react/'}>
+        <Router basename={window.location.host === '47.112.6.146'?'/react/':'/'}>
             <Route path="/" component={props=> <App store={mobxer}/>}>
             </Route>
         </Router>

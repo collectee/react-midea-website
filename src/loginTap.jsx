@@ -23,7 +23,7 @@ class loginTap extends React.Component{
                 password:this.state.password
             }
         }).then(res => {
-            console.log(res.data.msg)
+            alert(res.data.msg)
         })
     }
     inputUsername(e){

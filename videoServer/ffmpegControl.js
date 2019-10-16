@@ -68,7 +68,7 @@ class Ffmepg {
     reduce(oldPath,ossName,callback){
         ffmpeg(oldPath)
         // .complexFilter(ffmpeg_cmplxFilter)
-            .size('1280x720')
+            .size('854x480')
             .aspect('16:9')
             .applyAutopadding(true,'black')
             .outputOptions(this.ffmpeg_option)

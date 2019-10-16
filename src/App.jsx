@@ -23,9 +23,8 @@ class App extends Component {
                 {name:'登出',className:'fa-chevron-right',href:'#'}
             ],
             left_menu_child:[
-                {name:'Media',className:'fa-chevron-right',href:'/'},
-                {name:'Music',className:'fa-chevron-right',href:'/'},
-                {name:'Articles',className:'fa-chevron-right',href:'/'},
+                {name:'Media',className:'fa-chevron-right',href:'/react/'},
+                {name:'Articles',className:'fa-chevron-right',href:'/vue/'},
                 {name:'UserProfile',className:'fa-chevron-right',href:'/'}
             ],
             showType:'',

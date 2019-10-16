@@ -4,6 +4,8 @@ import axios from 'axios'
 class uploadTap extends React.Component{
     constructor(props){
         super(props)
+        this.timer = null
+        this.debouce = 0
         this.inputTitle = this.inputTitle.bind(this)
         this.inputAbstract = this.inputAbstract.bind(this)
         this.uploadData = this.uploadData.bind(this)
@@ -26,13 +28,16 @@ class uploadTap extends React.Component{
         forms.append('file',document.querySelector('.v_file').files[0])
         forms.append('title',this.state.title)
         forms.append('abstract',this.state.abstract)
-        axios({
-            method:'post',
-            url:this.props.$server + '/video/uploadVideo',
-            data:forms
-        }).then((res) => {
-            alert(res.data.msg)
-        })
+        this.timer = setTimeout(() => {
+            this.debouce = 9999
+            axios({
+                method:'post',
+                url:this.props.$server + '/video/uploadVideo',
+                data:forms
+            }).then((res) => {
+                alert(res.data.msg)
+            })
+        },this.debouce)
     }
     inputTitle(e){
         this.setState({

@@ -1,4 +1,5 @@
 import React, { Component} from "react";
+import {Link} from "react-router-dom";
 import axios from 'axios';
 import TodoList from './todoList'
 import LoginTap from './loginTap'
@@ -63,7 +64,7 @@ class Header extends Component{
         <div className={"header-div "+headerClass} >
             <div class="blur"></div>
             <header class="header-expand relative ">
-                <div class="left-icon"><a><div class="header-icon"></div><span>React Movie Website</span></a></div>
+                <div class="left-icon"><Link to={'/'}><div class="header-icon"></div><span>React Movie Website</span></Link></div>
                 <div class="right-bars"><i class="fa fa-bars" onClick={this.showOutsideMenu}></i></div>
                 <div class="search-bar"><div class="inputDiv"><input onChange={this.search}/><i class="fa fa-search" onClick={this.clickSearch}></i></div></div>
             </header>

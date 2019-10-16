@@ -1,8 +1,9 @@
 let webpack = require ('webpack');
 let path = require ('path');
 let HtmlWebpackPlugin = require('html-webpack-plugin');
+let PrerenderSpaPlugin = require('prerender-spa-plugin');
 module.exports = {
-    mode: 'production',
+    mode: 'development',
     entry: {
         media:path.resolve(__dirname,'../src/index.jsx'),
         // video:path.resolve(__dirname,'../template/video.js')
@@ -11,7 +12,7 @@ module.exports = {
         // path: './dist',
         path: path.resolve(__dirname,'../dist'), //输出位置
         filename: '[name]-build.js', //输入文件
-        publicPath: '/react/'
+        publicPath: '/'
     },
     devServer: {
         contentBase: path.resolve(__dirname, "../dist"),
@@ -63,7 +64,21 @@ module.exports = {
         //     template:path.resolve(__dirname,'../template/playVideo.html'),
         //     filename:'playVideo.html',
         //     chunks:['video']
-        // })
+        // }),
+        new PrerenderSpaPlugin({        //预渲染插件——用户优化,避免白屏
+            staticDir:path.resolve(__dirname,'../dist'),
+            routes:['/'],
+            // minify:{
+            //     collapseBooleanAttributes:true,
+            //     collapseWhitespace:true,
+            //     decodeEntities:true,
+            //     keepClosingSlash:true,
+            //     sortAttributes:true
+            // },
+            // renderer:new PrerenderSpaPlugin.PuppeteerRenderer({
+            //     renderAfterDocumentEvent:'custom-render-trigger'
+            // })
+        })
     ]
     //插件
 };
