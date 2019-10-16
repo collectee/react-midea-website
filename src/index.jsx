@@ -58,7 +58,7 @@ class MobxStore {
         this.chooseVideo = this.chooseVideo.bind(this)
     }
     @action setServer(){
-        this.$server = window.location.host.match(/zyukyun.cn|47.112.6.146/)?'http://47.112.6.146:8081':'http://localhost:8081'
+        this.$server = window.location.host.match(/zyukyun.cn|47.112.6.146/) ? 'http://47.112.6.146:8081':'http://localhost:8081'
         console.log(window.location.host,'_',this.$server)
     }
     @action getList(currentPage){
@@ -98,7 +98,7 @@ class MobxStore {
 let mobxer = new MobxStore();
 ReactDOM.render((
     //{/*<Provider store={store}>*/}
-        <Router basename={window.location.host === '47.112.6.146'?'/react/':'/'}>
+        <Router basename={mobxer.$server.match(/47.112.6.146/)?'/react/':'/'}>
             <Route path="/" component={props=> <App store={mobxer}/>}>
             </Route>
         </Router>
