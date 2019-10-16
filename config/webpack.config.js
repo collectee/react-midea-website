@@ -12,7 +12,7 @@ module.exports = {
         // path: './dist',
         path: path.resolve(__dirname,'../dist'), //输出位置
         filename: '[name]-build.js', //输入文件
-        publicPath: '/'
+        publicPath: '/react/'
     },
     devServer: {
         contentBase: path.resolve(__dirname, "../dist"),
