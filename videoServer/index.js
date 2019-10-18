@@ -15,7 +15,13 @@ const QueryStr = require('./databaseControl.js')
 
 app.use(function (req, res, next) {
   // res.header('Access-Control-Allow-Origin', '*')
-  res.header('Access-Control-Allow-Origin', '*')
+  // res.header('Access-Control-Allow-Origin', 'http://zyukyun.cn')
+  let allowedOrigins = ['http://47.112.6.146', 'http://zyukyun.cn'];
+  let origin = req.headers.origin;
+  if(allowedOrigins.indexOf(origin) > -1){
+      res.setHeader('Access-Control-Allow-Origin', origin);
+  }
+  console.log('** origin:',origin)
   res.header('Access-Control-Allow-Headers', 'Origin,X-Requested-With,Content-Type,Accept,Authorization')
   res.header('Access-Control-Allow-Methods', 'PUT,POST,GET,DELETE,OPTIONS')
   res.header('Access-Control-Allow-Credentials', 'true')
